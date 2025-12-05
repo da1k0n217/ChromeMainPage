@@ -1,9 +1,5 @@
 <script lang="ts">
 
-    import {GoogleBrands} from 'svelte-awesome-icons';
-    import {XTwitterBrands} from 'svelte-awesome-icons';
-    import {AmazonBrands} from 'svelte-awesome-icons';
-
     import {fade} from "svelte/transition";
 
     let Gsearchquery = '';
@@ -13,23 +9,22 @@
     function Gsearch(event: SubmitEvent) {
 
         event.preventDefault();
-        if(Gsearchquery.trim() !== ''){
+        if(defsearchquery.trim() !== ''){
 
-            window.location.href = `https://www.google.com/search?q=${encodeURIComponent(Gsearchquery)}`;
+            window.location.href = `https://www.google.com/search?q=${encodeURIComponent(defsearchquery)}`;
 
-            Gsearchquery = '';
-
+            defsearchquery = '';
         }
 
     }
     function Xsearch(event: SubmitEvent) {
 
         event.preventDefault();
-        if(Xsearchquery.trim() !== ''){
+        if(defsearchquery.trim() !== ''){
 
-            window.location.href = `https://x.com/search?q=${encodeURIComponent(Xsearchquery)}&src=typed_query`;
+            window.location.href = `https://x.com/search?q=${encodeURIComponent(defsearchquery)}&src=typed_query`;
 
-            Xsearchquery = '';
+            defsearchquery = '';
 
         }
 
@@ -37,12 +32,45 @@
     function Asearch(event: SubmitEvent) {
 
         event.preventDefault();
-        if(Asearchquery.trim() !== ''){
+        if(defsearchquery.trim() !== ''){
 
-            window.location.href = `https://www.amazon.co.jp/s?k=${encodeURIComponent(Asearchquery)}`;
+            window.location.href = `https://www.amazon.co.jp/s?k=${encodeURIComponent(defsearchquery)}`;
 
-            Asearchquery = '';
+            defsearchquery = '';
+        }
 
+    }
+
+    
+    const brands: string[] = ['google', 'twitter', 'amazon'];
+    let index = 0;
+    let icon = brands[0];
+    let name = 'Google';
+
+    function changebrand() {
+
+        index++
+
+        if (index >= brands.length) {
+
+            index = 0;
+
+        }
+
+        icon = brands[index];
+
+        if (icon === 'google') {
+            def = Gsearch;
+            defsearchquery = Gsearchquery;
+            name = 'Google';
+        } else if (icon === 'twitter') {
+            def = Xsearch;
+            defsearchquery = Xsearchquery;
+            name = 'X';
+        } else if (icon === 'amazon') {
+            def = Asearch;
+            defsearchquery = Asearchquery;
+            name = 'Amazon';
         }
 
     }
@@ -51,13 +79,19 @@
     import { onMount } from 'svelte';
 
     let show = false;
+
+    let def = Gsearch;
+    let defsearchquery = Gsearchquery;
+
     onMount(() => { show = true; });
+
 
 </script>
 
 <title>スマート検索タブ</title>
 
-<main class="bg-gray-600 h-dvh flex flex-col justify-center p-10">
+{#if show}
+<main class="bg-gray-600 h-dvh flex flex-col justify-center p-10" transition:fade="{{delay: 250}}">
 
     <div class="bg-gray-500 backdrop-blur-md p-7 rounded-2xl">
 
@@ -68,51 +102,56 @@
 
         </div>
 
-        {#if show}
-        <div class="flex justify-center p-20 w-full" transition:fade="{{delay: 250}}">
+        <div class="flex justify-center p-20 w-full gap-2">
 
-            <GoogleBrands size="45" color="white" class="drop-shadow-md flex-col p-1.5"/>
+            <div onclick={() => {changebrand()}}>
 
-            <form on:submit={Gsearch}>
+                <img src={`./images/${icon}.png`} alt="Search Icon" class="m-auto my-2 cursor-pointer hover:brightness-60 transition"/>
+            
+            </div>
 
-                <input type='text' bind:value={Gsearchquery} placeholder="Googleで検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-blue-500
+            <form onsubmit={def}>
+
+                <input type='text' bind:value={defsearchquery} placeholder="{name}で検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-blue-500
                 focus:ring-1 focus:ring-blue-500 hover:bg-gray-200 transition"/>
 
             </form>
 
         </div>
-        {/if}
 
-        {#if show}
-        <div class="flex justify-center w-full" transition:fade="{{delay: 250}}">
+    </div>
 
-            <XTwitterBrands size="45" class="drop-shadow-md flex-col p-1.5" color="white"/>
+    <div class="mt-20">
 
-            <form on:submit={Xsearch}>
+        <div class="mx-70 flex justify-center border-t-1 border-gray-400 gap-30">
 
-                <input type='text' bind:value={Xsearchquery} placeholder="話題を検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-gray-800
-                focus:ring-1 focus:ring-gray-800 hover:bg-gray-200 transition"/>
+            <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
 
-            </form>
+                <a href=""></a>
+
+            </div>
+
+            <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
+
+                <a href=""></a>
+
+            </div>
+
+            <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
+
+                <a href=""></a>
+
+            </div>
+
+            <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
+
+                <a href=""></a>
+
+            </div>
 
         </div>
-        {/if}
-
-        {#if show}
-        <div class="flex justify-center w-full p-20" transition:fade="{{delay: 250}}">
-
-            <AmazonBrands size="45" class="drop-shadow-md flex-col p-1.5" color="white"/>
-
-            <form on:submit={Asearch}>
-
-                <input type='text' bind:value={Asearchquery} placeholder="Amazon.co.jpを検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-yellow-300
-                focus:ring-1 focus:ring-yellow-300 hover:bg-gray-200 transition"/>
-
-            </form>
-
-        </div>
-        {/if}
 
     </div>
 
 </main>
+{/if}
