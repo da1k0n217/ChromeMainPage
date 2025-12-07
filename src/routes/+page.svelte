@@ -127,25 +127,33 @@
 
             <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
 
-                <a href=""></a>
+                <a href="https://gmail.com">
+                    <img src="./images/gmail.png" alt="Gmail" class="w-10 h-10"/>
+                </a>
 
             </div>
 
             <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
 
-                <a href=""></a>
+                <a href="https://x.com">
+                    <img src="./images/X.png" alt="X" class="w-8 h-8"/>
+                </a>
 
             </div>
 
             <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
 
-                <a href=""></a>
+                <a href="https://www.amazon.co.jp/">
+                    <img src="./images/amazon2.png" alt="Amazon" class="w-10 h-10"/>
+                </a>
 
             </div>
 
             <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
 
-                <a href=""></a>
+                <a href="https://chatgpt.com/">
+                    <img src="./images/chatgpt.png" alt="ChatGPT" class="w-10 h-10"/>
+                </a>
 
             </div>
 
