@@ -44,8 +44,8 @@
     
     const brands: string[] = ['google', 'twitter', 'amazon'];
     let index = 0;
-    let icon = brands[0];
-    let name = 'Google';
+    let icon = $state(brands[0]);
+    let name = $state('Google');
 
     function changebrand() {
 
@@ -78,29 +78,39 @@
 
     import { onMount } from 'svelte';
 
-    let show = false;
+    let show = $state(false);
 
-    let def = Gsearch;
-    let defsearchquery = Gsearchquery;
+    let def = $state(Gsearch);
+    let defsearchquery = $state(Gsearchquery);
 
     onMount(() => { show = true; });
+    
+    let currenttime = $state(new Date());
 
+    let currenthours = $derived(String(currenttime.getHours()).padStart(2, '0'));
+    let currentminutes = $derived(String(currenttime.getMinutes()).padStart(2, '0'));
+
+    $effect(() => {
+        const intaval = setInterval(() => {
+            currenttime = new Date();
+        }, 1000);
+        return () => clearInterval(intaval);
+    })
 
 </script>
 
-<title>スマート検索タブ</title>
+<title>SmartSearch</title>
 
 {#if show}
 <main class="bg-gray-600 h-dvh flex flex-col justify-center p-10" transition:fade="{{delay: 250}}">
 
+    <div class="flex justify-center pb-10">
+
+        <h1 class=" text-white/80 text-8xl font-extralight">{currenthours}:{currentminutes}</h1>
+
+    </div>
+
     <div class="bg-gray-500 backdrop-blur-md p-7 rounded-2xl">
-
-        <div class="flex justify-center gap-2">
-
-            <img src="./images/icon.png" alt="Logo" class="mt-4"/>
-            <h1 class=" text-white text-4xl font-extralight pt-11">Smart Search</h1>
-
-        </div>
 
         <div class="flex justify-center p-20 w-full gap-2">
 

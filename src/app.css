@@ -1,2 +1,10 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap');
+
+body {
+    font-family: "M PLUS 1", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
