@@ -102,7 +102,7 @@
 <title>SmartSearch</title>
 
 {#if show}
-<main class="bg-gray-600 h-dvh flex flex-col justify-center p-10" transition:fade="{{delay: 250}}">
+<main class="bg-gray-600 h-dvh flex flex-col justify-center p-10 font-M PLUS 1" transition:fade="{{delay: 250}}">
 
     <div class="flex justify-center pb-10">
 
