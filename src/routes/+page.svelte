@@ -135,37 +135,29 @@
 
         <div class="mx-70 flex justify-center border-t-1 border-gray-400 gap-30">
 
-            <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
+            <a href="https://gmail.com" class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
 
-                <a href="https://gmail.com">
-                    <img src="./images/gmail.png" alt="Gmail" class="w-10 h-10"/>
-                </a>
+                <img src="./images/gmail.png" alt="Gmail" class="w-10 h-10"/>
 
-            </div>
+            </a>
 
-            <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
+            <a href="https://x.com" class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
 
-                <a href="https://x.com">
-                    <img src="./images/X.png" alt="X" class="w-8 h-8"/>
-                </a>
+                <img src="./images/X.png" alt="X" class="w-8 h-8"/>
 
-            </div>
+            </a>
 
-            <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
+            <a href="https://www.amazon.co.jp/" class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
 
-                <a href="https://www.amazon.co.jp/">
-                    <img src="./images/amazon2.png" alt="Amazon" class="w-10 h-10"/>
-                </a>
+                <img src="./images/amazon2.png" alt="Amazon" class="w-10 h-10"/>
 
-            </div>
+            </a>
 
-            <div class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
+            <a href="https://chatgpt.com/" class="mt-20 rounded-xl w-20 h-20 bg-gray-500 hover:bg-gray-400 cursor-pointer flex items-center justify-center transition">
 
-                <a href="https://chatgpt.com/">
-                    <img src="./images/chatgpt.png" alt="ChatGPT" class="w-10 h-10"/>
-                </a>
+                <img src="./images/chatgpt.png" alt="ChatGPT" class="w-10 h-10"/>
 
-            </div>
+            </a>
 
         </div>
 
